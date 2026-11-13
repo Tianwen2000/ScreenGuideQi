@@ -1,0 +1,26 @@
+{
+  "name": "screenguideqi-signaling",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "wrangler dev --ip 127.0.0.1 --port 8787",
+    "check": "tsc --noEmit",
+    "build": "wrangler deploy --dry-run --outdir dist",
+    "pretest": "npm run build",
+    "test": "node --test --test-concurrency=1 test/*.test.mjs",
+    "smoke:public": "node scripts/smoke-public.mjs",
+    "build:gateway": "node scripts/build-gateway.mjs",
+    "deploy:gateway": "npm run build:gateway && wrangler pages deploy --cwd pages-gateway --project-name screenguideqi-2f916560 --branch main",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20251118.0",
+    "esbuild": "0.25.4",
+    "miniflare": "4.20251118.1",
+    "typescript": "5.9.3",
+    "ws": "8.18.3",
+    "wrangler": "4.50.0"
+  }
+}

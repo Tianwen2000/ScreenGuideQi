@@ -1,0 +1,3 @@
+<resources>
+    <string name="default_signal_url" translatable="false">wss://screenguideqi-2f916560.pages.dev/signal</string>
+</resources>
